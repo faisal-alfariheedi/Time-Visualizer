@@ -17,6 +17,10 @@
 		3A4FD2FF2761C39100605B9F /* Time_VisualizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4FD2FE2761C39100605B9F /* Time_VisualizerTests.swift */; };
 		3A4FD3092761C39100605B9F /* Time_VisualizerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4FD3082761C39100605B9F /* Time_VisualizerUITests.swift */; };
 		3A4FD30B2761C39100605B9F /* Time_VisualizerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4FD30A2761C39100605B9F /* Time_VisualizerUITestsLaunchTests.swift */; };
+		3AF00D20276616C70087F566 /* dataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF00D1F276616C70087F566 /* dataViewController.swift */; };
+		3AF00D22276616F00087F566 /* keyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF00D21276616F00087F566 /* keyViewController.swift */; };
+		3AF00D24276624D20087F566 /* time cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF00D23276624D20087F566 /* time cell.swift */; };
+		3AF00D26276625F10087F566 /* weekcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF00D25276625F10087F566 /* weekcell.swift */; };
 		756598ED71D570C73F27C5B4 /* Pods_Time_Visualizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC6EBC5A748F62672B094DD3 /* Pods_Time_Visualizer.framework */; };
 		B4405A46C0C1A47387113C50 /* Pods_Time_Visualizer_Time_VisualizerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5B3A58E15C8FEBA903DF97 /* Pods_Time_Visualizer_Time_VisualizerUITests.framework */; };
 		F48BA9410A4D68F54735C481 /* Pods_Time_VisualizerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3E81B89983155946AA78E2 /* Pods_Time_VisualizerTests.framework */; };
@@ -54,6 +58,10 @@
 		3A4FD3042761C39100605B9F /* Time VisualizerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Time VisualizerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A4FD3082761C39100605B9F /* Time_VisualizerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time_VisualizerUITests.swift; sourceTree = "<group>"; };
 		3A4FD30A2761C39100605B9F /* Time_VisualizerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time_VisualizerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3AF00D1F276616C70087F566 /* dataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataViewController.swift; sourceTree = "<group>"; };
+		3AF00D21276616F00087F566 /* keyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keyViewController.swift; sourceTree = "<group>"; };
+		3AF00D23276624D20087F566 /* time cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "time cell.swift"; sourceTree = "<group>"; };
+		3AF00D25276625F10087F566 /* weekcell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weekcell.swift; sourceTree = "<group>"; };
 		4A5B3A58E15C8FEBA903DF97 /* Pods_Time_Visualizer_Time_VisualizerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Time_Visualizer_Time_VisualizerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C5359EBFE4B43C1C8E56D3F /* Pods-Time Visualizer-Time VisualizerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Time Visualizer-Time VisualizerUITests.release.xcconfig"; path = "Target Support Files/Pods-Time Visualizer-Time VisualizerUITests/Pods-Time Visualizer-Time VisualizerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		62B5D61A4803FFB0F34C316C /* Pods-Time Visualizer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Time Visualizer.release.xcconfig"; path = "Target Support Files/Pods-Time Visualizer/Pods-Time Visualizer.release.xcconfig"; sourceTree = "<group>"; };
@@ -122,6 +130,10 @@
 				3A4FD2E62761C38F00605B9F /* SceneDelegate.swift */,
 				3A4FD2E82761C38F00605B9F /* ViewController.swift */,
 				3A4FD2EA2761C38F00605B9F /* Main.storyboard */,
+				3AF00D25276625F10087F566 /* weekcell.swift */,
+				3AF00D23276624D20087F566 /* time cell.swift */,
+				3AF00D21276616F00087F566 /* keyViewController.swift */,
+				3AF00D1F276616C70087F566 /* dataViewController.swift */,
 				3A4FD2F02761C39100605B9F /* Assets.xcassets */,
 				3A4FD2F22761C39100605B9F /* LaunchScreen.storyboard */,
 				3A4FD2F52761C39100605B9F /* Info.plist */,
@@ -167,7 +179,6 @@
 				D3EC4DA5088DD5104598F404 /* Pods-Time VisualizerTests.debug.xcconfig */,
 				6D52B3589673AE2A43D3E026 /* Pods-Time VisualizerTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -410,10 +421,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AF00D20276616C70087F566 /* dataViewController.swift in Sources */,
 				3A4FD2EF2761C38F00605B9F /* Time_Visualizer.xcdatamodeld in Sources */,
+				3AF00D22276616F00087F566 /* keyViewController.swift in Sources */,
 				3A4FD2E92761C38F00605B9F /* ViewController.swift in Sources */,
 				3A4FD2E52761C38F00605B9F /* AppDelegate.swift in Sources */,
+				3AF00D26276625F10087F566 /* weekcell.swift in Sources */,
 				3A4FD2E72761C38F00605B9F /* SceneDelegate.swift in Sources */,
+				3AF00D24276624D20087F566 /* time cell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
