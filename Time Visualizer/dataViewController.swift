@@ -16,6 +16,7 @@ class dataViewController: UIViewController {
     var tel  = 0 , blu  = 0 , pur  = 0
     @IBOutlet weak var pie: PieChartView!
     @IBOutlet weak var line: LineChartView!
+    var lv=0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,23 @@ class dataViewController: UIViewController {
         }
     }
     
+    @IBAction func rightswipe(_ sender: UISwipeGestureRecognizer) {
+        if lv<1 {
+            line.isHidden=true
+            pie.isHidden=false
+        }else{
+            performSegue(withIdentifier: "ch", sender: "a")
+        }
+        
+        
+    }
+    @IBAction func leftswipe(_ sender: UISwipeGestureRecognizer) {
+        if lv==0 {
+            pie.isHidden=true
+            line.isHidden=false
+        }	
+        
+    }
 }
 extension dataViewController:UITableViewDelegate,UITableViewDataSource,PieChartDataEntry,PieChartData{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

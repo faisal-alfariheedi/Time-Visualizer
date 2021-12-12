@@ -185,11 +185,13 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="OyJ-VZ-8E0">
                     <connections>
+                        <action selector="right:" destination="BYZ-38-t0r" id="xnV-V8-0ls"/>
                         <segue destination="yOU-IX-btl" kind="show" id="OKU-om-amo"/>
                     </connections>
                 </swipeGestureRecognizer>
                 <swipeGestureRecognizer direction="left" id="WVP-bG-9Jd">
                     <connections>
+                        <action selector="left:" destination="BYZ-38-t0r" id="ADm-ky-7iA"/>
                         <segue destination="iML-zO-fl6" kind="show" id="QuK-vC-oyU"/>
                     </connections>
                 </swipeGestureRecognizer>
@@ -391,12 +393,20 @@
                         <outlet property="line" destination="UJU-oS-c6g" id="0qh-7I-gP5"/>
                         <outlet property="pie" destination="feX-9z-5qm" id="WtG-aU-aFR"/>
                         <outlet property="weektable" destination="m7d-as-Mth" id="X8S-y9-4tB"/>
-                        <segue destination="BYZ-38-t0r" kind="show" id="YWx-Gm-mi1"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="ch" id="YWx-Gm-mi1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DdQ-zd-JY7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="Y9E-iu-kI0"/>
-                <swipeGestureRecognizer direction="left" id="y5O-6g-00F"/>
+                <swipeGestureRecognizer direction="right" id="Y9E-iu-kI0">
+                    <connections>
+                        <action selector="rightswipe:" destination="iML-zO-fl6" id="mzo-aY-brb"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="y5O-6g-00F">
+                    <connections>
+                        <action selector="leftswipe:" destination="iML-zO-fl6" id="eRR-YL-Gvt"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="28.985507246376812" y="803.57142857142856"/>
         </scene>

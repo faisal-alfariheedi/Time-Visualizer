@@ -32,8 +32,16 @@ class ViewController: UIViewController {
         }catch{
             print(error)
         }
+        if (list.isEmpty){
+            for i in 0...6{
+                for j in 0...47
+                        list[i].day.append("")
+                        list[i].dayk.append(0)
+            }
+        }
     }
-
+    
+    
     @IBAction func add(_ sender: UIButton) {
     }
     
