@@ -27,7 +27,11 @@ class dataViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getall()
-        
+        weektable.dataSource=self
+        weektable.delegate=self
+        pie.delegate=self
+        line.delegate=self
+        print(weeklist.count)
         // Do any additional setup after loading the view.
     }
     func getall(){
@@ -53,9 +57,10 @@ class dataViewController: UIViewController {
     }
     
     @IBAction func rightswipe(_ sender: UISwipeGestureRecognizer) {
-        if lv<1 {
+        if lv==1 {
             line.isHidden=true
             pie.isHidden=false
+            lv-=1
         }else{
             performSegue(withIdentifier: "ch", sender: "a")
         }
@@ -66,6 +71,7 @@ class dataViewController: UIViewController {
         if lv==0 {
             pie.isHidden=true
             line.isHidden=false
+            lv+=1
         }	
         
     }
@@ -76,6 +82,9 @@ extension dataViewController:UITableViewDelegate,UITableViewDataSource,ChartView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 48
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(215.0)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

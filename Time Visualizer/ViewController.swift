@@ -10,7 +10,7 @@ import CoreData
 
 class ViewController: UIViewController {
     @IBOutlet weak var pick: UIPickerView!
-    var picklist=[String]()
+    var picklist=["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]
     @IBOutlet weak var table: UITableView!
     var list=[Daywork]()
     let cr=(UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -19,21 +19,27 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getall()
+        print(list.count)
         table.dataSource=self
         table.delegate=self
+        pick.dataSource=self
+        pick.delegate=self
         // Do any additional setup after loading the view.
     }
     
     func getall(){
         
-        if (list.count<6){
+        do{
+            let t=try cr.count(for: NSFetchRequest<NSFetchRequestResult>(entityName: "Daywork"))
+                                  
+        if (t<6){
             print("in")
             for i in 0...6{
                 let thing = NSEntityDescription.insertNewObject(forEntityName: "Daywork", into: cr) as! Daywork
-                var a=[""]
+                var a=[" "]
                 var s=[0]
                 for j in 0...46{
-                    a.append("")
+                    a.append(" ")
                     s.append(0)
 //                    thing.day!.append("")
 //                    thing.daykey!.append(0)
@@ -53,6 +59,8 @@ class ViewController: UIViewController {
                 }
             }
         }else{
+        
+            
             let req=NSFetchRequest<NSFetchRequestResult>(entityName: "Daywork")
             do{
                 let fet = try cr.fetch(req)
@@ -61,7 +69,11 @@ class ViewController: UIViewController {
             }catch{
                 print(error)
             }
-        }
+        
+    }
+    }catch{
+        print(error)
+    }
     }
     
     
@@ -81,6 +93,9 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate,UIPickerViewD
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return picklist[row]
     }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        table.reloadData()
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 48
@@ -91,6 +106,7 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate,UIPickerViewD
         if(list.isEmpty){}else{
         cell.workt=list[pick.selectedRow(inComponent: 0)]
         cell.key=indexPath.row
+        cell.cr=cr
         cell.time.text="\(indexPath.row/2):\((indexPath.row%2)*30)"
         }
         
