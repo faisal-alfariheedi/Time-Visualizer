@@ -18,25 +18,48 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getall()
         table.dataSource=self
         table.delegate=self
         // Do any additional setup after loading the view.
     }
     
     func getall(){
-        let req=NSFetchRequest<NSFetchRequestResult>(entityName: "Daywork")
-        do{
-            let fet = try cr.fetch(req)
-            list = fet as! [Daywork]
-            
-        }catch{
-            print(error)
-        }
-        if (list.isEmpty){
+        
+        if (list.count<6){
+            print("in")
             for i in 0...6{
-                for j in 0...47
-                        list[i].day.append("")
-                        list[i].dayk.append(0)
+                let thing = NSEntityDescription.insertNewObject(forEntityName: "Daywork", into: cr) as! Daywork
+                var a=[""]
+                var s=[0]
+                for j in 0...46{
+                    a.append("")
+                    s.append(0)
+//                    thing.day!.append("")
+//                    thing.daykey!.append(0)
+//                    list[i].day?.append("")
+//                    list[i].daykey?.append(0)
+                }
+                thing.day=a
+                thing.daykey=s
+                print(i)
+            }
+            if cr.hasChanges {
+                do {
+                    try cr.save()
+                    print("Success")
+                } catch {
+                    print("\(error)")
+                }
+            }
+        }else{
+            let req=NSFetchRequest<NSFetchRequestResult>(entityName: "Daywork")
+            do{
+                let fet = try cr.fetch(req)
+                list = fet as! [Daywork]
+                
+            }catch{
+                print(error)
             }
         }
     }
@@ -65,8 +88,11 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate,UIPickerViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: "timecell", for: indexPath) as! time_cell
-        cell.workt=list[indexPath.row]
+        if(list.isEmpty){}else{
+        cell.workt=list[pick.selectedRow(inComponent: 0)]
         cell.key=indexPath.row
+        cell.time.text="\(indexPath.row/2):\((indexPath.row%2)*30)"
+        }
         
         return cell
     }

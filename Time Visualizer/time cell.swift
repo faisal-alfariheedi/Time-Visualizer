@@ -20,8 +20,8 @@ class time_cell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        time.text="\(key/2):\((key%2)*30)"
-        work.text=workt.day[key]
+        
+        work.text=workt?.day![key]
         
     }
 
@@ -32,7 +32,7 @@ class time_cell: UITableViewCell {
     }
     
     @IBAction func edend(_ sender: UITextField) {
-        workt.day[key]=String(work.text!)
+        workt?.day![key]=String(work.text!)
         if cr.hasChanges {
             do {
                 try cr.save()
