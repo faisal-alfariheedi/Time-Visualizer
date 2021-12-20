@@ -5,6 +5,18 @@
 //  Created by faisal on 05/05/1443 AH.
 //
 
+
+
+
+
+
+
+//  the app core data doesn`t save changes in time cell class
+//
+//
+//
+//
+//
 import UIKit
 import CoreData
 
