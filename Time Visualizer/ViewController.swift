@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func getall(){
+    func getall() -> [Daywork] {
         
         do{
             let t=try cr.count(for: NSFetchRequest<NSFetchRequestResult>(entityName: "Daywork"))
@@ -74,6 +74,7 @@ class ViewController: UIViewController {
     }catch{
         print(error)
     }
+        return list
     }
     
     
@@ -106,9 +107,10 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate,UIPickerViewD
         if(list.isEmpty){}else{
         cell.workt=list[pick.selectedRow(inComponent: 0)]
         cell.key=indexPath.row
-        cell.cr=cr
         cell.time.text="\(indexPath.row/2):\((indexPath.row%2)*30)"
         }
+        cell.keyd=pick.selectedRow(inComponent: 0)
+        cell.own=self
         
         return cell
     }

@@ -15,7 +15,9 @@ class time_cell: UITableViewCell {
     
     var workt : Daywork?
     var key=0
-    var cr:NSManagedObjectContext?
+    var keyd=0
+    let cr=(UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var own:ViewController?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,19 +34,22 @@ class time_cell: UITableViewCell {
     }
     
     @IBAction func edend(_ sender: UITextField) {
-        workt!.day![key]=String(work.text!)
+        
+        let temp = own!.getall()
+        temp[keyd].day![key]=String(work.text!)
+//        workt!.day![key]=String(work.text!)
         var a = workt!.day![key]
         print(workt!.day![key])
         if(a.contains("ios") || a.contains("swift") ){
-            workt!.daykey![key]=1
+            temp[keyd].daykey![key]=1
         }else if(a.contains("algo") || a.contains("data str")){
-            workt!.daykey![key]=2
+            temp[keyd].daykey![key]=2
         }else if(a.contains("uikit") || a.contains("swift ui")){
-            workt!.daykey![key]=3
+            temp[keyd].daykey![key]=3
         }
-        if cr!.hasChanges {
+        if cr.hasChanges {
             do {
-                try cr!.save()
+                try cr.save()
                 print("Success")
             } catch {
                 print("\(error)")
